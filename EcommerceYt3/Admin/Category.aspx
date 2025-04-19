@@ -4,6 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    <div class="mb-4">
+        <asp:Label ID="lblmsg" runat="server">  </asp:Label>
+    </div>
     <div class="row">
         <div class="col-sm-12 col-md-4">
             <div class="card">
@@ -32,7 +35,7 @@
                                 <div class="form-group">
 
                                     <asp:FileUpload ID="fuCategoryImage" runat="server" CssClass="form-control" />
-
+                                    <asp:HiddenField ID="hfCategoryId" runat="server" Value="0" />
                                 </div>
                             </div>
                         </div>
@@ -50,7 +53,6 @@
 
                     </div>
 
-
                     <div class="form-action pb-5">
 
                         <div class="text-left">
@@ -61,7 +63,7 @@
 
                     <div>
 
-                        <asp:Image ID="imagePreview" runat="server"  CssClass="img-thumbnail" AlternateText="" />
+                        <asp:Image ID="imagePreview" runat="server" CssClass="img-thumbnail" AlternateText="" />
                     </div>
 
                 </div>
