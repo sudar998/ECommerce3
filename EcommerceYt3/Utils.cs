@@ -25,17 +25,17 @@ namespace EcommerceYt3
         public static bool isValidExtension(string file)
         {
             bool isValid = false;
-            string[] fileExtensions = { ".jpg", ".png", ".jpeg" }; 
-            foreach(var filename in fileExtensions)
+            string[] fileExtensions = { ".jpg", ".png", ".jpeg" };
+            foreach (var filename in fileExtensions)
             {
-                 if(file.ToLower().Contains(filename))
+                if (file.ToLower().Contains(filename))
                 {
                     isValid = true;
                     break;
                 }
             }
             return isValid;
-              
+
         }
 
         public static string GenerateUniqueId()
@@ -43,6 +43,21 @@ namespace EcommerceYt3
             Guid guid = Guid.NewGuid();
 
             return guid.ToString();
+
+        }
+
+        public static string GetImageUrl(object url)
+        {
+            string url1 = string.Empty;
+            if (string.IsNullOrEmpty(url.ToString()) || url == DBNull.Value)
+            {
+                url1 = "../Images/No_image.png";
+            }
+            else
+            {
+                url1 = string.Format("../{0}", url);
+            }
+            return url1;
 
         }
     }

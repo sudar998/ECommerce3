@@ -19,6 +19,15 @@
     <link href="../Admin_Template/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
     <!-- Custom CSS -->
     <link href="../Admin_Template/dist/css/style.min.css" rel="stylesheet">
+
+
+    <!-- DataTable CSS --->
+    <link href="../Admin_Template/datatables/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="../Admin_Template/datatables/css/responsive.bootstrap4.min.css" rel="stylesheet" />
+    <link href="../Admin_Template/datatables/css/icon-font.min.css" rel="stylesheet" />
+    <script src="../Admin_Template/assets/libs/jquery/dist/jquery.min.js"></script>
+  
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -95,9 +104,6 @@
                         <!-- toggle and nav items -->
                         <!-- ============================================================== -->
                         <ul class="navbar-nav float-left mr-auto ml-3 pl-1">
-                          
-                           
-                         
                         </ul>
                         <!-- ============================================================== -->
                         <!-- Right side toggle and nav items -->
@@ -120,13 +126,13 @@
                                     <a class="dropdown-item" href="javascript:void(0)"><i data-feather="user"
                                         class="svg-icon mr-2 ml-1"></i>
                                         My Profile</a>
-                                  
+
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="javascript:void(0)"><i data-feather="power"
                                         class="svg-icon mr-2 ml-1"></i>
                                         Logout</a>
                                     <div class="dropdown-divider"></div>
-                                   
+
                                 </div>
                             </li>
                             <!-- ============================================================== -->
@@ -174,16 +180,16 @@
                                 <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                     <li class="sidebar-item"><a href="form-inputs.html" class="sidebar-link"><span
                                         class="hide-menu">Form Inputs
-                                        </span></a>
+                                    </span></a>
                                     </li>
                                     <li class="sidebar-item"><a href="form-input-grid.html" class="sidebar-link"><span
                                         class="hide-menu">Form Grids
-                                        </span></a>
+                                    </span></a>
                                     </li>
                                     <li class="sidebar-item"><a href="form-checkbox-radio.html" class="sidebar-link"><span
                                         class="hide-menu">Checkboxes &
                                             Radios
-                                        </span></a>
+                                    </span></a>
                                     </li>
                                 </ul>
                             </li>
@@ -193,26 +199,26 @@
                                 <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                     <li class="sidebar-item"><a href="table-basic.html" class="sidebar-link"><span
                                         class="hide-menu">Basic Table
-                                        </span></a>
+                                    </span></a>
                                     </li>
                                     <li class="sidebar-item"><a href="table-dark-basic.html" class="sidebar-link"><span
                                         class="hide-menu">Dark Basic Table
-                                        </span></a>
+                                    </span></a>
                                     </li>
                                     <li class="sidebar-item"><a href="table-sizing.html" class="sidebar-link"><span
                                         class="hide-menu">Sizing Table
-                                        </span></a>
+                                    </span></a>
                                     </li>
                                     <li class="sidebar-item"><a href="table-layout-coloured.html" class="sidebar-link"><span
                                         class="hide-menu">Coloured
                                             Table Layout
-                                        </span></a>
+                                    </span></a>
                                     </li>
                                     <li class="sidebar-item"><a href="table-datatable-basic.html" class="sidebar-link"><span
                                         class="hide-menu">Basic
                                             Datatables
                                             Layout
-                                        </span></a>
+                                    </span></a>
                                     </li>
                                 </ul>
                             </li>
@@ -222,15 +228,15 @@
                                 <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                     <li class="sidebar-item"><a href="chart-morris.html" class="sidebar-link"><span
                                         class="hide-menu">Morris Chart
-                                        </span></a>
+                                    </span></a>
                                     </li>
                                     <li class="sidebar-item"><a href="chart-chart-js.html" class="sidebar-link"><span
                                         class="hide-menu">ChartJs
-                                        </span></a>
+                                    </span></a>
                                     </li>
                                     <li class="sidebar-item"><a href="chart-knob.html" class="sidebar-link"><span
                                         class="hide-menu">Knob Chart
-                                        </span></a>
+                                    </span></a>
                                     </li>
                                 </ul>
                             </li>
@@ -240,7 +246,7 @@
                                 <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                     <li class="sidebar-item"><a href="ui-buttons.html" class="sidebar-link"><span
                                         class="hide-menu">Buttons
-                                        </span></a>
+                                    </span></a>
                                     </li>
                                     <li class="sidebar-item"><a href="ui-modals.html" class="sidebar-link"><span
                                         class="hide-menu">Modals </span></a>
@@ -294,7 +300,7 @@
                             <li class="sidebar-item"><a class="sidebar-link sidebar-link"
                                 href="authentication-register1.html" aria-expanded="false"><i data-feather="lock"
                                     class="feather-icon"></i><span class="hide-menu">Register
-                                </span></a>
+                                    </span></a>
                             </li>
 
                             <li class="sidebar-item"><a class="sidebar-link has-arrow" href="javascript:void(0)"
@@ -381,7 +387,7 @@
                                 </nav>
                             </div>
                         </div>
-                       
+
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -425,7 +431,6 @@
     </form>
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="../Admin_Template/assets/libs/jquery/dist/jquery.min.js"></script>
     <script src="../Admin_Template/assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="../Admin_Template/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- apps -->
@@ -444,5 +449,26 @@
     <script src="../Admin_Template/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js"></script>
     <script src="../Admin_Template/assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js"></script>
     <script src="../Admin_Template/dist/js/pages/dashboards/dashboard1.min.js"></script>
+
+    <!-- Datatable JS -->
+    <script src="../Admin_Template/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../Admin_Template/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <%--    <script src="../Admin_Template/datatables/js/buttons.bootstrap4.min.js"></script>--%>
+    <script src="../Admin_Template/datatables/js/dataTables.responsive.min.js"></script>
+    <script src="../Admin_Template/datatables/js/responsive.bootstrap4.min.js"></script>
+
+
+    <!-- Datatable Buttons for export-->
+    <script src="../Admin_Template/datatables/js/dataTables.buttons.min.js"></script>
+    <script src="../Admin_Template/datatables/js/buttons.bootstrap4.min.js"></script>
+    <script src="../Admin_Template/datatables/js/buttons.print.min.js"></script>
+    <script src="../Admin_Template/datatables/js/buttons.html5.min.js"></script>
+    <script src="../Admin_Template/datatables/js/buttons.flash.min.js"></script>
+    <script src="../Admin_Template/datatables/js/pdfmake.min.js"></script>
+    <script src="../Admin_Template/datatables/js/vfs_fonts.js"></script>
+
+    <!-- Datatable Setting JS -->
+    <script src="../Admin_Template/datatables/js/datatable-setting.js"></script>
+
 </body>
 </html>

@@ -19,8 +19,24 @@ namespace EcommerceYt3.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             lblmsg.Visible = false;
+            getCategories();
         }
 
+
+        protected void getCategories()
+        {
+            conn = new SqlConnection(Utils.GetConnection());
+            cmd = new SqlCommand("CategoryCrud", conn);
+            cmd.Parameters.AddWithValue("@Action", "GETALL");
+            cmd.CommandType = CommandType.StoredProcedure;
+            sda = new SqlDataAdapter(cmd);
+            dt = new DataTable();
+            sda.Fill(dt);
+            rptCategory.DataSource = dt; 
+            rptCategory.DataBind(); 
+
+
+        }
         protected void btnAddorUpdate_Click(object sender, EventArgs e)
         {
             string action = string.Empty, imagePath = string.Empty, fileExtension = string.Empty;
