@@ -32,8 +32,8 @@ namespace EcommerceYt3.Admin
             sda = new SqlDataAdapter(cmd);
             dt = new DataTable();
             sda.Fill(dt);
-            rptCategory.DataSource = dt; 
-            rptCategory.DataBind(); 
+            rptCategory.DataSource = dt;
+            rptCategory.DataBind();
 
 
         }
@@ -56,7 +56,7 @@ namespace EcommerceYt3.Admin
                     string filenameId = Utils.GenerateUniqueId();
                     fileExtension = Path.GetExtension(fuCategoryImage.FileName);
                     imagePath = "Images/Category/" + filenameId + fileExtension;
-                    fuCategoryImage.PostedFile.SaveAs(Server.MapPath("~/Images/Category/" + filenameId + fileExtension));
+                    fuCategoryImage.PostedFile.SaveAs(Server.MapPath("~/Images/Category/") + filenameId + fileExtension);
                     cmd.Parameters.AddWithValue("@CategoryImageUrl", imagePath);
                     isValidToExecute = true;
                 }
@@ -83,7 +83,10 @@ namespace EcommerceYt3.Admin
                     lblmsg.Visible = true;
                     lblmsg.Text = "Category " + action + " successfully";
                     lblmsg.CssClass = "alert alert-success";
+                    getCategories();
+                    Clear();
                 }
+
                 catch (Exception ex)
                 {
                     lblmsg.Visible = true;
@@ -111,7 +114,31 @@ namespace EcommerceYt3.Admin
             isCBActive.Checked = false;
             hfCategoryId.Value = "0";
             btnAddorUpdate.Text = "Add";
-            imagePreview.ImageUrl = string.Empty; 
+            imagePreview.ImageUrl = string.Empty;
+        }
+
+        protected void rptCategory_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            lblmsg.Visible = false;
+            if (e.CommandName == "edit")
+            {
+                conn = new SqlConnection(Utils.GetConnection());
+                cmd = new SqlCommand("CategoryCrud", conn);
+                cmd.Parameters.AddWithValue("@Action", "GETBYID");
+                cmd.Parameters.AddWithValue("@CategoryId", e.CommandArgument);
+                cmd.CommandType = CommandType.StoredProcedure;
+                sda = new SqlDataAdapter(cmd);
+                dt = new DataTable();
+                sda.Fill(dt);
+                txtCategoryName.Text = dt.Rows[0]["CategoryName"].ToString();
+                isCBActive.Checked = Convert.ToBoolean(dt.Rows[0]["IsActive"].ToString());
+                imagePreview.ImageUrl = !string.IsNullOrEmpty(dt.Rows[0]["CategoryImageUrl"].ToString()) ? "../" +  dt.Rows[0]["CategoryImageUrl"].ToString() : "../Images/No_image.png";
+                imagePreview.Width = 200; 
+                imagePreview.Height = 200;
+                hfCategoryId.Value = dt.Rows[0]["CategoryId"].ToString();
+                btnAddorUpdate.Text = "Update";
+            
+            }
         }
     }
 }
