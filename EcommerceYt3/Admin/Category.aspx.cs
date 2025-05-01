@@ -138,6 +138,35 @@ namespace EcommerceYt3.Admin
                 hfCategoryId.Value = dt.Rows[0]["CategoryId"].ToString();
                 btnAddorUpdate.Text = "Update";
             
+            }else
+             if(e.CommandName == "delete")
+            {
+                conn = new SqlConnection(Utils.GetConnection());
+                cmd = new SqlCommand("CategoryCrud", conn);
+                cmd.Parameters.AddWithValue("@Action", "DELETE");
+                cmd.Parameters.AddWithValue("@CategoryId", e.CommandArgument);
+                cmd.CommandType = CommandType.StoredProcedure;
+                
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    lblmsg.Visible = true;
+                    lblmsg.Text = "Category deleted succesfully";
+                    lblmsg.CssClass = "alert alert-success"; 
+                    getCategories();
+
+                }
+                catch(Exception ex)
+                {
+                    lblmsg.Visible = true; 
+                    lblmsg.Text = "Error : " + ex.Message;
+                    lblmsg.CssClass = "alert alert-danger";
+                }
+                finally
+                {
+                    conn.Close();
+                }
             }
         }
     }

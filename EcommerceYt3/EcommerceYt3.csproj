@@ -598,6 +598,7 @@
     <Content Include="Admin_Template\docs\highlights\highlight.min.js" />
     <Content Include="Admin_Template\src\counter.txt" />
     <Content Include="Global.asax" />
+    <Content Include="Images\No_image.png" />
     <Content Include="User\Cart.aspx" />
     <Content Include="User\Checkout.aspx" />
     <Content Include="User\Contact.aspx" />
