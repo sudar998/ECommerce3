@@ -18,6 +18,8 @@ namespace EcommerceYt3.Admin
         DataTable dt;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["breadcumbTitle"] = "Manage category";
+            Session["breadcumbPage"] = "Category";
             lblmsg.Visible = false;
             getCategories();
         }

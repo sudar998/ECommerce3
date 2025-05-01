@@ -12,7 +12,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../Admin_Template/assets/images/favicon.png">
-    <title>Adminmart Template - The Ultimate Multipurpose admin template</title>
+    <title>Admin area</title>
     <!-- Custom CSS -->
     <link href="../Admin_Template/assets/extra-libs/c3/c3.min.css" rel="stylesheet">
     <link href="../Admin_Template/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
@@ -26,7 +26,7 @@
     <link href="../Admin_Template/datatables/css/responsive.bootstrap4.min.css" rel="stylesheet" />
     <link href="../Admin_Template/datatables/css/icon-font.min.css" rel="stylesheet" />
     <script src="../Admin_Template/assets/libs/jquery/dist/jquery.min.js"></script>
-  
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -155,14 +155,14 @@
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">
                             <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="Dashboard.aspx"
-                                aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
+                                aria-expanded="false"><i  class="fas fa-tachometer-alt"></i><span
                                     class="hide-menu">Dashboard</span></a></li>
                             <li class="list-divider"></li>
-                            <li class="nav-small-cap"><span class="hide-menu">Applications</span></li>
+                            <li class="nav-small-cap"><span class="hide-menu">CATEGORIES</span></li>
 
-                            <li class="sidebar-item"><a class="sidebar-link" href="Contact.aspx"
-                                aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span
-                                    class="hide-menu">Ticket List
+                            <li class="sidebar-item"><a class="sidebar-link" href="category.aspx"
+                                aria-expanded="false"><i class="fas fa-tag"></i><span
+                                    class="hide-menu">Category
                                 </span></a>
                             </li>
                             <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="app-chat.html"
@@ -377,12 +377,14 @@
                 <div class="page-breadcrumb">
                     <div class="row">
                         <div class="col-7 align-self-center">
-                            <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Good Morning Jason!</h3>
+                            <h3 class="page-title text-truncate text-dark font-weight-medium mb-1"><% Response.Write(Session["breadcumbTitle"]); %></h3>
                             <div class="d-flex align-items-center">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb m-0 p-0">
-                                        <li class="breadcrumb-item"><a href="Dashboard.aspx">Dashboard</a>
-                                        </li>
+                                        <li class="breadcrumb-item"><a href="Dashboard.aspx">Dashboard</a> </li>
+                                        <li class="breadcrumb-item text-muted active" aria-current="page" > <% Response.Write(Session["breadcumbPage"]); %> </li>
+
+                                        
                                     </ol>
                                 </nav>
                             </div>
