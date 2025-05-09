@@ -70,6 +70,7 @@
     <Content Include="Admin\Category.aspx" />
     <Content Include="Admin\Contact.aspx" />
     <Content Include="Admin\Dashboard.aspx" />
+    <Content Include="Admin\SubCategory.aspx" />
     <Content Include="Admin_Template\assets\extra-libs\c3\c3.min.css" />
     <Content Include="Admin_Template\assets\extra-libs\c3\c3.min.js" />
     <Content Include="Admin_Template\assets\extra-libs\c3\d3.min.js" />
@@ -681,6 +682,13 @@
     </Compile>
     <Compile Include="Admin\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\SubCategory.aspx.cs">
+      <DependentUpon>SubCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\SubCategory.aspx.designer.cs">
+      <DependentUpon>SubCategory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="Category.aspx.cs" Inherits="EcommerceYt3.Admin.Category" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="SubCategory.aspx.cs" Inherits="EcommerceYt3.Admin.SubCategory" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script>
@@ -13,28 +13,6 @@
     </script>
 
 
-    <script> 
-        function ImagePreview(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-
-
-                    $('#<%=imagePreview.ClientID %>').prop('src', e.target.result)
-                        .width(200)
-                        .height(200)
-                };
-                reader.readAsDataURL(input.files[0]);
-
-
-
-            }
-
-        }
-
-
-
-    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -46,18 +24,19 @@
             <div class="card">
                 <div class="card-body">
 
-                    <h4 class="card-title">Category </h4>
+                    <h4 class="card-title">Sub-Category </h4>
                     <hr />
                     <div class="form-body">
 
-                        <label>Category Name </label>
+                        <label>SubCategory Name </label>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
 
-                                    <asp:TextBox ID="txtCategoryName" runat="server" CssClass="form-control" placeholder="Enter Category Name"> </asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="rfCategoryName" runat="server" ForeColor="Red" Font-Size="small"
-                                        Display="Dynamic" SetFocusOnError="true" ControlToValidate="txtCategoryName" ErrorMessage="Category Name is required"></asp:RequiredFieldValidator>
+                                    <asp:TextBox ID="txtSubCategoryName" runat="server" CssClass="form-control" placeholder="Enter SubCategory Name"> </asp:TextBox>
+
+                                    <asp:RequiredFieldValidator ID="rfSubCategoryName" runat="server" ForeColor="Red" Font-Size="small"
+                                        Display="Dynamic" SetFocusOnError="true" ControlToValidate="txtSubCategoryName" ErrorMessage="Category Name is required"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                         </div>
@@ -68,9 +47,17 @@
                             <div class="col-md-12">
                                 <div class="form-group">
 
-                                    <asp:FileUpload ID="fuCategoryImage" runat="server" CssClass="form-control"
-                                        onchange="ImagePreview(this);" />
-                                    <asp:HiddenField ID="hfCategoryId" runat="server" Value="0" />
+                                    <asp:DropDownList ID="ddlCategory" runat="server" AppendDataBoundItems="true" CssClass="form-control">
+
+                                        <asp:ListItem Value="0">Select Category</asp:ListItem>
+                                    </asp:DropDownList>
+
+                                    <asp:RequiredFieldValidator ControlToValidate="ddlcategory" runat="server" ForeColor="Red" Font-Size="Small" Display="Dynamic" SetFocusOnError="true" InitialValue="0" ErrorMessage="Category is required">
+
+                                    </asp:RequiredFieldValidator>
+
+                                    <asp:HiddenField ID="hfSubCategoryId" runat="server" Value="0" />
+
                                 </div>
                             </div>
                         </div>
@@ -96,11 +83,6 @@
                         </div>
                     </div>
 
-                    <div>
-
-                        <asp:Image ID="imagePreview" runat="server" CssClass="img-thumbnail" AlternateText="" />
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -111,19 +93,19 @@
             <div class="card">
                 <div class="card-body">
 
-                    <h4 class="card-title">Category List </h4>
+                    <h4 class="card-title">Sub-Category List </h4>
                     <div class="table-responsive">
 
 
-                        <asp:Repeater ID="rptCategory" runat="server" OnItemCommand="rptCategory_ItemCommand">
+                        <asp:Repeater ID="rptSubCategory" runat="server" OnItemCommand="rptSubCategory_ItemCommand">
 
                             <HeaderTemplate>
                                 <table class="table data-table-export table-hover nowrap">
                                     <thead>
                                         <tr>
 
-                                            <th class="table-plus">Name </th>
-                                            <th>Image </th>
+                                            <th class="table-plus">SubCategory </th>
+                                            <th>Category </th>
                                             <th>IsActive </th>
                                             <th>CreatedDate</th>
                                             <th class="datatable-nosort">Action </th>
@@ -136,10 +118,10 @@
                             <ItemTemplate>
                                 <tr>
                                     <td class="table-plus">
-                                        <%# Eval("CategoryName") %>
+                                        <%# Eval("SubCategoryName") %>
                                     </td>
                                     <td>
-                                        <img width="40" src="<%# ResolveUrl(EcommerceYt3.Utils.GetImageUrl(Eval("CategoryImageUrl"))) %>" alt="image" />
+                                        <%# Eval("CategoryName") %>
                                     </td>
 
                                     <td>
@@ -155,11 +137,11 @@
                                        
                                     </td>
                                     <td>
-                                        <asp:LinkButton ID="lbEdit" runat="server" Text="Edit" CssClass="badge badge-primary" CommandArgument='<%#Eval("CategoryId")  %>' CommandName="edit" CausesValidation="false">
+                                        <asp:LinkButton ID="lbEdit" runat="server" Text="Edit" CssClass="badge badge-primary" CommandArgument='<%#Eval("SubCategoryId")  %>' CommandName="edit" CausesValidation="false">
                                             <i class="fas fa-edit"></i>
                                         </asp:LinkButton>
 
-                                        <asp:LinkButton ID="lbDelete" runat="server" Text="Delete" CssClass="badge badge-danger" CommandArgument='<%#Eval("CategoryId")%>' CommandName="delete" CausesValidation="false">
+                                        <asp:LinkButton ID="lbDelete" runat="server" Text="Delete" CssClass="badge badge-danger" CommandArgument='<%#Eval("SubCategoryId")%>' CommandName="delete" CausesValidation="false">
                                           <i class="fas fa-trash-alt"></i>
                                         </asp:LinkButton>
 
@@ -180,3 +162,4 @@
         </div>
     </div>
 </asp:Content>
+
