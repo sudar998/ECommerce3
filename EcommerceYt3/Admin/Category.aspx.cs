@@ -57,8 +57,13 @@ namespace EcommerceYt3.Admin
                 {
                     string filenameId = Utils.GenerateUniqueId();
                     fileExtension = Path.GetExtension(fuCategoryImage.FileName);
+                    string saveDirectory = "Images/Category/";
+                    if (!Directory.Exists(saveDirectory))
+                    {
+                        Directory.CreateDirectory(saveDirectory);
+                    }
                     imagePath = "Images/Category/" + filenameId + fileExtension;
-                    fuCategoryImage.PostedFile.SaveAs(Server.MapPath("~/Images/Category/") + filenameId + fileExtension);
+                    fuCategoryImage.PostedFile.SaveAs(Server.MapPath("/Images/Category/") + filenameId + fileExtension);
                     cmd.Parameters.AddWithValue("@CategoryImageUrl", imagePath);
                     isValidToExecute = true;
                 }

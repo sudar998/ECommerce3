@@ -52,8 +52,11 @@ namespace EcommerceYt3.Admin
             sda = new SqlDataAdapter(cmd);
             dt = new DataTable();
             sda.Fill(dt);
+          
+        
             rptSubCategory.DataSource = dt;
             rptSubCategory.DataBind();
+       
 
         }
         protected void btnAddorUpdate_Click(object sender, EventArgs e)
